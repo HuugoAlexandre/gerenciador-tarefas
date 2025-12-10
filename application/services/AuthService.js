@@ -38,7 +38,7 @@ class AuthService {
 
     // Gerar JWT
     const token = jwt.sign(
-      { id: usuario.id, email: usuario.email },
+      { id: usuario.id, nome: usuario.nome, email: usuario.email },
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );

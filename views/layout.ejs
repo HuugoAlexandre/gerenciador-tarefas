@@ -14,7 +14,7 @@
         <% if (locals.usuario) { %>
           <li><a href="/projetos/lista">Meus Projetos</a></li>
           <li><a href="/tarefas/dashboard">Dashboard</a></li>
-          <li><a href="/auth/logout">Sair</a></li>
+          <li><a href="/auth/logout">Sair (<%= locals.usuario.nome %>)</a></li>
         <% } else { %>
           <li><a href="/auth/login">Login</a></li>
           <li><a href="/auth/registro">Registrar</a></li>
@@ -25,11 +25,11 @@
 
   <main class="container">
     <h2><%= title %></h2>
-    <%- body %>
+    <%- locals.body %>
   </main>
 
   <footer>
-    <p>&copy; 2024 Gerenciador de Tarefas. Desenvolvido por Hugo e Matheus.</p>
+    <p>&copy; 2025 Gerenciador de Tarefas. Desenvolvido por Hugo e Matheus.</p>
   </footer>
 </body>
 </html>
