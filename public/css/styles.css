@@ -129,6 +129,7 @@ main p {
 
 .btn-primary:hover {
   background-color: #2980b9;
+  color: black;
 }
 
 .btn-secondary {
@@ -138,6 +139,7 @@ main p {
 
 .btn-secondary:hover {
   background-color: #7f8c8d;
+  color: black;
 }
 
 .btn-danger {
@@ -566,4 +568,13 @@ footer p {
 .tasks-footer {
   margin-top: 2rem;
   text-align: center;
+}
+
+#delete-tarefa {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
