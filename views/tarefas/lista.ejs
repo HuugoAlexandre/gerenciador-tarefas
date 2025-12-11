@@ -1,6 +1,6 @@
 <%- include('../layout') %>
 <div class="tarefas-header">
-  <h3><%= projeto.titulo %></h3>
+  <h3>Titulo: <%= projeto.titulo %></h3>
   <a href="/tarefas/<%= projeto.id %>/nova" class="btn btn-primary">+ Nova Tarefa</a>
 </div>
 
@@ -20,7 +20,9 @@
 </div>
 
 <% if (!tarefas || tarefas.length === 0) { %>
+  <div class="empty-tasks">
   <p>Nenhuma tarefa neste projeto. <a href="/tarefas/<%= projeto.id %>/nova">Crie uma!</a></p>
+  </div>
 <% } else { %>
   <table class="table">
     <thead>
@@ -50,5 +52,6 @@
     </tbody>
   </table>
 <% } %>
-
+<div class="tasks-footer">
 <p><a href="/projetos/lista">← Voltar aos projetos</a></p>
+</div>
