@@ -7,10 +7,18 @@ module.exports = (err, req, res, _next) => {
   if (req.accepts('html')) {
     return res.status(status).render('error', {
       title: `Erro ${status}`,
+      status,                 // <-- ESSENCIAL
       message,
       error: process.env.NODE_ENV === 'development' ? err : {},
+
+      // Enviar detalhes de validação caso existam
+      details: err.details || null
     });
   }
 
-  res.status(status).json({ error: message });
+  res.status(status).json({
+    status,
+    error: message,
+    details: err.details || null
+  });
 };

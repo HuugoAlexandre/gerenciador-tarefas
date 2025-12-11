@@ -1,4 +1,5 @@
 const { validationResult } = require('express-validator');
+const ValidationError = require('../errors/ValidationError');
 
 function validate(rules) {
   return [
@@ -6,9 +7,10 @@ function validate(rules) {
     (req, res, next) => {
       const errors = validationResult(req);
       if (errors.isEmpty()) return next();
-      
-      req.validationMapped = errors.mapped();
-      next('validation_error');
+
+      return next(
+        new ValidationError("Dados inválidos", errors.mapped())
+      );
     },
   ];
 }

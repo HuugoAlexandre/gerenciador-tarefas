@@ -15,7 +15,7 @@
 
   <main class="container">
     <div class="error-page">
-      <h1>❌ Erro <%= status || 500 %></h1>
+      <h1>Erro <%= status || 500 %></h1>
       <p><%= message %></p>
       
       <% if (locals.error && Object.keys(error).length > 0) { %>
