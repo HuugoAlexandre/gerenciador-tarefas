@@ -44,7 +44,7 @@
           <td>
             <a href="/tarefas/<%= projeto.id %>/<%= t.id %>/editar">Editar</a> |
             <form method="post" action="/tarefas/<%= projeto.id %>/<%= t.id %>/excluir" style="display:inline">
-              <button type="submit" onclick="return confirm('Tem certeza?')">Excluir</button>
+              <button id="delete-tarefa" class="btn btn-danger" type="submit" onclick="return confirm('Tem certeza?')">Excluir</button>
             </form>
           </td>
         </tr>
