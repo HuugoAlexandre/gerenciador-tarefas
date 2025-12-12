@@ -365,7 +365,8 @@ footer p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  max-width: 80%;
+  margin: 0 auto 2rem auto;
 }
 
 .stat {
@@ -577,4 +578,11 @@ footer p {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
+}
+.tasks-table{
+  max-width: 80%;
+  border-collapse: collapse;
+  margin: 1.5rem auto;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
