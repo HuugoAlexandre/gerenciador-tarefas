@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser()); 
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Fazer usuário disponível em todos as views
@@ -26,17 +26,10 @@ app.use((req, res, next) => {
   const container = require('./container');
   const token = req.cookies.token;
 
-  console.log('[DEBUG] Token:', token ? 'EXISTE' : 'NÃO EXISTE');
-  console.log('[DEBUG] Cookies:', req.cookies);
-
-  
   if (token) {
     try {
       const decoded = container.authService.verificarToken(token);
-      console.log('[DEBUG] Decoded:', decoded);
-      console.log('[DEBUG] Decoded.nome:', decoded?.nome);  
       res.locals.usuario = decoded;
-      console.log('[DEBUG] res.locals.usuario:', res.locals.usuario);
     } catch (err) {
       res.clearCookie('token');
     }
