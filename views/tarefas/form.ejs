@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <label for="prazo">Prazo*</label>
-      <input id="prazo" name="prazo" type="date" value="<%= tarefa.prazo ? tarefa.prazo.toISOString().split('T')[0] : '' %>" required>
+      <input id="prazo" name="prazo" type="date" value="<%= tarefa.prazo ? (typeof tarefa.prazo === 'string' ? tarefa.prazo.split('T')[0] : tarefa.prazo.toISOString().split('T')[0]) : '' %>" required>
       <% if (errors.prazo) { %><span class="error"><%= errors.prazo.msg %></span><% } %>
     </div>
 

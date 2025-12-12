@@ -4,7 +4,9 @@
 </div>
 
 <% if (!projetos || projetos.length === 0) { %>
+  <div class="empty-container">
   <p>Você não tem projetos ainda. <a href="/projetos/novo">Crie um!</a></p>
+  </div>
 <% } else { %>
   <div class="projetos-grid">
     <% projetos.forEach(p => { %>

@@ -1,6 +1,6 @@
 <%- include('../layout') %>
 <div class="tarefas-header">
-  <h3><%= projeto.titulo %></h3>
+  <h3>Titulo: <%= projeto.titulo %></h3>
   <a href="/tarefas/<%= projeto.id %>/nova" class="btn btn-primary">+ Nova Tarefa</a>
 </div>
 
@@ -20,9 +20,11 @@
 </div>
 
 <% if (!tarefas || tarefas.length === 0) { %>
+  <div class="empty-tasks">
   <p>Nenhuma tarefa neste projeto. <a href="/tarefas/<%= projeto.id %>/nova">Crie uma!</a></p>
+  </div>
 <% } else { %>
-  <table class="table">
+  <table class="table tasks-table">
     <thead>
       <tr>
         <th>Título</th>
@@ -42,7 +44,7 @@
           <td>
             <a href="/tarefas/<%= projeto.id %>/<%= t.id %>/editar">Editar</a> |
             <form method="post" action="/tarefas/<%= projeto.id %>/<%= t.id %>/excluir" style="display:inline">
-              <button type="submit" onclick="return confirm('Tem certeza?')">Excluir</button>
+              <button id="delete-tarefa" class="btn btn-danger" type="submit" onclick="return confirm('Tem certeza?')">Excluir</button>
             </form>
           </td>
         </tr>
@@ -50,5 +52,6 @@
     </tbody>
   </table>
 <% } %>
-
+<div class="tasks-footer">
 <p><a href="/projetos/lista">← Voltar aos projetos</a></p>
+</div>

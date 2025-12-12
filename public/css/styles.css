@@ -129,6 +129,7 @@ main p {
 
 .btn-primary:hover {
   background-color: #2980b9;
+  color: black;
 }
 
 .btn-secondary {
@@ -138,6 +139,7 @@ main p {
 
 .btn-secondary:hover {
   background-color: #7f8c8d;
+  color: black;
 }
 
 .btn-danger {
@@ -363,7 +365,8 @@ footer p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  max-width: 80%;
+  margin: 0 auto 2rem auto;
 }
 
 .stat {
@@ -392,8 +395,8 @@ footer p {
 /* ===== HEADERS ===== */
 .tarefas-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-evenly;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid #ecf0f1;
@@ -495,4 +498,91 @@ footer p {
   main h2 {
     font-size: 1.5rem;
   }
+}
+.hero {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.empty-container {
+  text-align: center;
+  padding: 2rem;
+  background: #f9f9f9;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+}
+
+.list-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.dashboard {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto 2rem auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.empty-tasks {
+  text-align: center;
+  padding: 2rem;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.tasks-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#delete-tarefa {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.tasks-table{
+  max-width: 80%;
+  border-collapse: collapse;
+  margin: 1.5rem auto;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
