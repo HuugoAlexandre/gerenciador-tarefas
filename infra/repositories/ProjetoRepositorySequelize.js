@@ -29,9 +29,18 @@ class ProjetoRepositorySequelize extends ProjetoRepository {
     return this._rowToEntity(row.toJSON());
   }
 
-  async findAll(ownerId) {
+  async findAll(ownerId, busca = '') {
+    const where = { ownerId };
+    
+    if (busca && busca.trim()) {
+      const { Op } = require('sequelize');
+      where.titulo = {
+        [Op.like]: `%${busca.trim()}%`
+      };
+    }
+    
     const rows = await this.ProjetoModel.findAll({
-      where: { ownerId },
+      where,
       order: [['criado_em', 'DESC']],
     });
     return rows.map(r => this._rowToEntity(r.toJSON()));

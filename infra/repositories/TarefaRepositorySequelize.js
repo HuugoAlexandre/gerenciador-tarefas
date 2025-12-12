@@ -31,9 +31,18 @@ class TarefaRepositorySequelize extends TarefaRepository {
     return this._rowToEntity(row.toJSON());
   }
 
-  async findByProjetoId(projetoId) {
+  async findByProjetoId(projetoId, busca = '') {
+    const where = { projetoId };
+    
+    if (busca && busca.trim()) {
+      const { Op } = require('sequelize');
+      where.titulo = {
+        [Op.like]: `%${busca.trim()}%`
+      };
+    }
+    
     const rows = await this.TarefaModel.findAll({
-      where: { projetoId },
+      where,
       order: [['criado_em', 'DESC']],
     });
     return rows.map(r => this._rowToEntity(r.toJSON()));

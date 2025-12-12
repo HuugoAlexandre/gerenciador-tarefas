@@ -28,8 +28,8 @@ class TarefaService {
     return await this.tarefaRepository.create(tarefa);
   }
 
-  async listarPorProjeto(projetoId) {
-    return await this.tarefaRepository.findByProjetoId(projetoId);
+  async listarPorProjeto(projetoId, busca = '') {
+    return await this.tarefaRepository.findByProjetoId(projetoId, busca);
   }
 
   async obter(id) {

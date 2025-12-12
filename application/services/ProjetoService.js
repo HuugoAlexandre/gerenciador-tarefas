@@ -12,8 +12,8 @@ class ProjetoService {
     return await this.projetoRepository.create(projeto);
   }
 
-  async listar(usuarioId) {
-    return await this.projetoRepository.findAll(usuarioId);
+  async listar(usuarioId, busca = '') {
+    return await this.projetoRepository.findAll(usuarioId, busca);
   }
 
   async obter(id) {
