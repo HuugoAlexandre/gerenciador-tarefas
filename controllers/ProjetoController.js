@@ -17,10 +17,12 @@ class ProjetoController {
   regras() { return regras; }
 
   async lista(req, res) {
-    const projetos = await this.projetoService.listar(req.usuario.id);
+    const busca = req.query.busca || '';
+    const projetos = await this.projetoService.listar(req.usuario.id, busca);
     res.render('projetos/lista', {
       title: 'Meus Projetos',
       projetos,
+      busca,
     });
   }
 

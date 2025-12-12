@@ -25,7 +25,8 @@ class TarefaController {
       return res.status(403).send('Acesso negado');
     }
 
-    const tarefas = await this.tarefaService.listarPorProjeto(req.params.projetoId);
+    const busca = req.query.busca || '';
+    const tarefas = await this.tarefaService.listarPorProjeto(req.params.projetoId, busca);
     const stats = await this.tarefaService.obterEstatisticas(req.params.projetoId);
 
     res.render('tarefas/lista', {
@@ -33,6 +34,7 @@ class TarefaController {
       projeto,
       tarefas,
       stats,
+      busca,
     });
   }
 
