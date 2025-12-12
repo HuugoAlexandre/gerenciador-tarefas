@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser()); // Adicionar isto!
+app.use(cookieParser()); 
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Fazer usuário disponível em todos as views
@@ -33,10 +33,10 @@ app.use((req, res, next) => {
   if (token) {
     try {
       const decoded = container.authService.verificarToken(token);
-      console.log('🔍 [DEBUG] Decoded:', decoded);
-      console.log('🔍 [DEBUG] Decoded.nome:', decoded?.nome);  // ← ADICIONE ISTO
+      console.log('[DEBUG] Decoded:', decoded);
+      console.log('[DEBUG] Decoded.nome:', decoded?.nome);  
       res.locals.usuario = decoded;
-      console.log('🔍 [DEBUG] res.locals.usuario:', res.locals.usuario);
+      console.log('[DEBUG] res.locals.usuario:', res.locals.usuario);
     } catch (err) {
       res.clearCookie('token');
     }
